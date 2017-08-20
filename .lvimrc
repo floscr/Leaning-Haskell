@@ -1,0 +1,7 @@
+ nnoremap <silent> <Leader>xd
+       \ :call VimuxRunCommand(':! clear')<CR>
+       \ :call VimuxSendKeys('enter')<CR>
+       \ :call VimuxRunCommand(':l ' . bufname('%'))<CR>
+       \ :call VimuxSendKeys('enter')<CR>
+       \ :call VimuxRunCommand('main')<CR>
+       \ :call VimuxSendKeys('enter')<CR>
