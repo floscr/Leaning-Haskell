@@ -24,3 +24,9 @@ dividedBy num denom
     go n d count
       | n < d     = count
       | otherwise = go (n - d) d (count + 1)
+
+-- McCarthy 91
+-- https://github.com/jeffreybiles/haskell-book/blob/845ff36b0571fe12c9391144fc17ecb8c2fcda2c/ch08/currying-review.hs#L54
+mc91 n
+  | n > 100 = n - 10
+  | otherwise = 91
