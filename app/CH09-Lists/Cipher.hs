@@ -11,8 +11,11 @@ offsetCharBy o c = chr (ord s - 1 + (o - (ord e - ord c)))
     s = if (isUpper c) then 'A' else 'a'
     e = if (isUpper c) then 'Z' else 'z'
 
-encodeString :: Int -> String -> String
-encodeString _ [] = []
-encodeString o (c:cs)
-  | offsetCharIsBiggerThanZ c o = offsetCharBy o c : encodeString o cs
-  | otherwise                   = chr (ord c + o) : encodeString o cs
+encodeString :: (Int -> Int -> Int) -> Int -> String -> String
+encodeString _ _ [] = []
+encodeString f o (c:cs)
+  | offsetCharIsBiggerThanZ c o = offsetCharBy o c : encodeString f o cs
+  | otherwise                   = chr (f (ord c) o) : encodeString f o cs
+
+caesar :: Int -> String -> String
+caesar o c = encodeString (+) o c
