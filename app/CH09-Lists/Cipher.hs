@@ -19,3 +19,6 @@ encodeString f o (c:cs)
 
 caesar :: Int -> String -> String
 caesar o c = encodeString (+) o c
+
+unCaesar :: Int -> String -> String
+unCaesar o c = encodeString (-) o c
