@@ -24,3 +24,6 @@ squish :: [[a]] -> [a]
 squish s = go s []
   where go [] o = o
         go (x:xs) o = go xs (o ++ x)
+
+squishMap :: (a -> [b]) -> [a] -> [b]
+squishMap f xs = squish $ map f xs
