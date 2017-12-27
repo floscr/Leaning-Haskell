@@ -27,3 +27,6 @@ squish s = go s []
 
 squishMap :: (a -> [b]) -> [a] -> [b]
 squishMap f xs = squish $ map f xs
+
+squishAgain :: [[a]] -> [a]
+squishAgain = squishMap id
