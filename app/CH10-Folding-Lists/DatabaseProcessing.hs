@@ -18,6 +18,24 @@ db =
            (secondsToDiffTime 34123))
   ]
 
+-- using folds
+filterDbDate' :: [DatabaseItem] -> [UTCTime]
+filterDbDate' = foldr (\x y -> case x of
+    DbDate x -> x : y
+    _ -> y
+  ) []
+
+filterDbNumber' :: [DatabaseItem] -> [Integer]
+filterDbNumber' = foldr (\x y -> case x of
+    DbNumber x -> x : y
+    _ -> y
+  ) []
+
+filterDbDate'' :: [DatabaseItem] -> [UTCTime]
+filterDbDate'' = foldr f []
+  where f (DbDate a) b = a : b
+        f _ b = b
+
 filterDbDate :: [DatabaseItem] -> [UTCTime]
 filterDbDate [] = []
 filterDbDate (DbDate x:xs) = x : filterDbDate xs
