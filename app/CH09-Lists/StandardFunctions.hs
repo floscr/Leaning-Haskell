@@ -36,3 +36,5 @@ myMaximumBy f (x:x':[]) =
   if f x x' == GT then x else x'
 myMaximumBy f (x:x':xs) =
   if f x x' == GT then myMaximumBy f (x:xs) else myMaximumBy f (x':xs)
+
+myMinimumBy :: (a -> a -> Ordering) -> [a] -> a
