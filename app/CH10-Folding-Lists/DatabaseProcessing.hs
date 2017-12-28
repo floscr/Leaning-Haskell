@@ -25,12 +25,6 @@ filterDbDate' = foldr (\x y -> case x of
     _ -> y
   ) []
 
-filterDbNumber' :: [DatabaseItem] -> [Integer]
-filterDbNumber' = foldr (\x y -> case x of
-    DbNumber x -> x : y
-    _ -> y
-  ) []
-
 filterDbDate'' :: [DatabaseItem] -> [UTCTime]
 filterDbDate'' = foldr f []
   where f (DbDate a) b = a : b
