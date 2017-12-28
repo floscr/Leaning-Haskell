@@ -35,6 +35,5 @@ sumDb :: [DatabaseItem] -> Integer
 sumDb = sum . filterDbNumber
 
 avgDb :: [DatabaseItem] -> Double
-avgDb db = (fromIntegral sum) / (fromIntegral count) where
-            sum = sumDb db
-            count = length $ filterDbNumber db
+avgDb xs = fromIntegral (sum allNumbers) / fromIntegral (length allNumbers)
+    where allNumbers = filterDbNumber xs
